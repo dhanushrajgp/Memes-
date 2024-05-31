@@ -2,6 +2,7 @@ package com.crio.starter.controller;
 
 import lombok.AllArgsConstructor;
 import java.util.List;
+import javax.validation.Valid;
 import com.crio.starter.constants.MemeConstants;
 import com.crio.starter.exchange.MemeDto;
 import com.crio.starter.exchange.MemePostResponseDto;
@@ -27,7 +28,7 @@ public class MemeController {
     private IMemeService memeService;
 
     @PostMapping("/")
-    public ResponseEntity<MemePostResponseDto> createMeme(@RequestBody MemeDto memeDto) {
+    public ResponseEntity<MemePostResponseDto> createMeme(@Valid  @RequestBody MemeDto memeDto) {
         MemePostResponseDto getSavedid = memeService.createMeme(memeDto);
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(getSavedid);

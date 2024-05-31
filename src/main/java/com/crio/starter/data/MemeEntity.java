@@ -15,6 +15,7 @@ public class MemeEntity extends BaseEntity{
     @Id
     private ObjectId id;
 
+    
     private String name;
 
     private String url;
